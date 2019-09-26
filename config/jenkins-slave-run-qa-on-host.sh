@@ -1,0 +1,1 @@
+sudo java -jar ./config/agent.jar -jnlpUrl https://${JENKINS_HOST}/computer/${HOSTNAME}/slave-agent.jnlp -secret ${JNLP_SECRET} -workDir "/Users/${USER}"

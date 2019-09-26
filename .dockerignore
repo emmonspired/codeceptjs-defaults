@@ -1,0 +1,9 @@
+.git/
+node_modules/
+npm-debug/
+output/*
+newman/*
+logs/*
+video/*
+docker-compose*.yml
+cm

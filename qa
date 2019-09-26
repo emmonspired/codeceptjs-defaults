@@ -1,0 +1,18 @@
+#!/bin/sh
+
+QA_STARTTIME=$(date +%s)
+
+{ # try
+ npx codeceptjs run --config config/codecept.conf.js --steps --grep $*
+} || { #catch
+ echo 'Error with run. Inspect saved screenshots in ./output'
+ echo Opening ./output/`ls ./output | sort -n | head -1` 
+ open ./output/
+ open ./output/`ls ./output | sort -n | head -1`
+} 
+
+# finally
+QA_ENDTIME=$(date +%s)
+echo "It took $(($QA_ENDTIME - $QA_STARTTIME)) seconds to complete."
+echo 'Tests were run with command:'
+echo npx codeceptjs run --config config/codecept.conf.js --steps --grep $* 

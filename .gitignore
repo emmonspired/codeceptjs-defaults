@@ -1,0 +1,23 @@
+#ignore these files
+.DS_Store
+
+#Ignore these Folders
+node_modules/
+codecept\.json
+
+output/*
+!output/.gitignore
+
+newman/*
+
+screenshots/base/*
+screenshots/diff/*
+!screenshots/diff/.gitignore
+
+.sfdx/**
+
+.vscode/launch.json
+
+cm
+logs/*
+video/*

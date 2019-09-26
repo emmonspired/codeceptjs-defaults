@@ -1,0 +1,16 @@
+#!/bin/sh
+
+QA_STARTTIME=$(date +%s)
+
+{ # try
+npx codeceptjs run-workers 3 --config ./config/codecept-headless-workers.conf.js --grep $*
+} || { #catch
+ echo 'Error with run. Inspect saved screenshots in ./output'
+} 
+
+# finally 
+QA_ENDTIME=$(date +%s)
+echo "It took $(($QA_ENDTIME - $QA_STARTTIME)) seconds to complete."
+
+echo 'Tests were run with command:'
+echo npx codeceptjs run-workers 3 --config ./config/codecept-headless-workers.conf.js --grep $*
