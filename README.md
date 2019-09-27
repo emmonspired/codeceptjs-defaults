@@ -57,3 +57,6 @@ This should be run any time the custom helpers in `./helpers` change:
 ```
 ./node_modules/codeceptjs/bin/codecept.js def
 ```
+
+## Enabling Google Sheets API
+https://developers.google.com/sheets/api/quickstart/nodejs

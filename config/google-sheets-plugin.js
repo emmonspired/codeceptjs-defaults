@@ -3,25 +3,18 @@ const { container, recorder, event } = require('codeceptjs');
 const {SimpleGoogleSheets} = require('simple-google-sheets');
 
 const sheets = new SimpleGoogleSheets({
-  SCOPES:['https://www.googleapis.com/auth/spreadsheets'], 
+  SCOPES:['https://www.googleapis.com/auth/spreadsheets.readonly'], 
   CREDENTIALS_PATH:`./credentials/codeceptjs.defaults@gmail.com/google-sheets-credentials.json`,
-  TOKEN_PATH:`./credentials/codeceptjs.defaults/google-sheets-token.json`});
+  TOKEN_PATH:`./credentials/codeceptjs.defaults@gmail.com/google-sheets-token.json`});
 
 async function fetchData() {
-  const QA_SHEET = '1NnD7LIP0Dt-EvZI6vrpnETeSISRRsB53UisaTIvg1GA';
+  const QA_SHEET = '12zKq7DzWE_WJJZHPrUHfEemC8SgZdfHs7EFNlOabdcs';
   console.debug(`google-sheets-plugin: fetchData from ${QA_SHEET}`);
 
   const keyToRange = 
-  [ {key:'qaSiteDefaults', range:'Site Defaults!A1:Z'},
-    {key:'qaCreditCards', range: 'Credit Cards!A1:H'},
-    {key:'qaTestAccounts', range: 'Staging Accounts!A1:H'},
-    {key:'qaTestAccountReset', range: 'ResetAccounts!A1:L'},
-    {key:'qaNewmanCollections', range: 'Newman-Collections!A1:D'},
-    {key:'qaCoreAPIEnvironments', range: 'CoreAPI-Environments!A1:AZ'},
-    {key:'qaCrawlerExclusions', range: 'Crawler-Exclusions!A1:C'},
-    {key:'qaNewYorkRenewals', range: 'NY-AutoRenew!A1:Z'},
-    {key:'qaZuoraSandbox', range: 'ZuoraSandbox!A1:Z'},
-    {key:'qaSalesForceIDs', range: 'SF-IDS!A1:Z'} ];
+  [ 
+    {key:'qaSiteDefaults', range:'Site Defaults!A1:Z'},
+  ];
 
   const promises = [];
   for( let entry of keyToRange ) { 

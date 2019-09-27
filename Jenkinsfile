@@ -16,8 +16,8 @@ pipeline {
         SLACK_COLOR_GOOD    = '#3EB991'
         SLACK_CHANNEL_1 = '#qa-ci'  
         SLACK_CHANNEL_2 = '#qa-ci'  
-        SLACK_TEAM_DOMAIN = 'deltadefenseux'
-        SLACK_TOKEN = '2cKN7zO7vSQEXCVDJXMMDGNs'        
+        SLACK_TEAM_DOMAIN = 'slack-team-domain'
+        SLACK_TOKEN = 'slack-token'
     }
 
     options {         
