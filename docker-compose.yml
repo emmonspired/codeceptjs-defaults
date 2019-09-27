@@ -27,8 +27,7 @@ services:
       - "7777:7777"
     command: ["--listen", ":7777", "--selenoid-uri", "http://selenoid:4444"]
   qa:
-    container_name: qa
-    image: "emmonspired/qa"
+    container_name: qa    
     build:
       context: .
       dockerfile: Dockerfile      
