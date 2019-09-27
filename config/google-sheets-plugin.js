@@ -23,11 +23,11 @@ async function fetchData() {
   
   let rawData = [];
 
-  Promise.all(promises).then( (results) => {    
+  await (Promise.all(promises).then( (results) => {    
     for( let r in results ) {
       rawData[ keyToRange[r].key ] = results[r];
     }
-  });
+  }));
 
   return new GoogleSheetsDataWrapper(rawData);  
 }
