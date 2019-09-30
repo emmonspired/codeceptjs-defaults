@@ -229,3 +229,25 @@ Scenario('Disable javascript alert', async(I) => {
     I.say(`nonexistentPopupText: ${nonexistentPopupText}`);    
 
 }).tag('@POC').tag('@DisableJSAlert');
+
+Scenario('My First CodeceptJS Test', async (I,GoogleSheetsData) => {
+  
+    I.amOnPage('https://www.google.com');
+    
+    I.pressKey('CodeceptJS');
+    I.wait(1);
+    I.click("I'm Feeling Lucky");
+    I.waitInUrl('https://codecept.io/');
+    I.click('Guides');
+    I.waitInUrl('https://codecept.io/basics');
+    I.click('Testing with WebDriver');
+    I.scrollPageToBottom();
+    I.click('Examples');
+    I.fillField('#search_input_react', 'intellisense');
+    I.wait(1);    
+    await I.pressKey('Enter');
+    I.scrollPageToBottom();
+    I.click({":css":".docs-next"});
+    I.waitForText('Testing with WebDriver');    
+    
+}).tag('@poc').tag('@navigate-codecept-via-google');
