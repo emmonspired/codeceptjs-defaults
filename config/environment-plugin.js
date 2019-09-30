@@ -9,18 +9,10 @@ async function fetchData() {
   console.debug('environment-plugin: fetchData');
   // sets default environment if none has been provided via command line, .bash_profile or otherwise.
   process.env.QA_ENV = process.env.QA_ENV || 'dev'; // by default, dev environment. Set this first.
-  process.env.QA_DEFAULT_CARD_KEY = process.env.QA_ENV + '-default'; // environment + "-default"
-  process.env.QA_FULFILLMENT_CARD_KEY = process.env.QA_FULFILLMENT_CARD_KEY || 'prod-default';
-  process.env.QA_FULFILLMENT_ENV = process.env.QA_FULFILLMENT_ENV || 'prod';
-  process.env.QA_CORE_API_ENV = process.env.QA_CORE_API_ENV || 'Staging';
   process.env.QA_RESEMBLE_PREPARE_BASE_IMAGE = process.env.QA_RESEMBLE_PREPARE_BASE_IMAGE || 'false';
   process.env.QA_OVERRIDE_ENV_PROMPT = process.env.QA_OVERRIDE_ENV_PROMPT || 'false';
 
-  console.log('QA_ENV:', process.env.QA_ENV);  
-  console.log('QA_DEFAULT_CARD_KEY:', process.env.QA_DEFAULT_CARD_KEY);
-  console.log('QA_FULFILLMENT_CARD_KEY:', process.env.QA_FULFILLMENT_CARD_KEY);
-  console.log('QA_FULFILLMENT_ENV:', process.env.QA_FULFILLMENT_ENV);
-  console.log('QA_CORE_API_ENV:', process.env.QA_CORE_API_ENV);
+  console.log('QA_ENV:', process.env.QA_ENV);      
   console.log('QA_RESEMBLE_PREPARE_BASE_IMAGE', process.env.QA_RESEMBLE_PREPARE_BASE_IMAGE);
   console.log('QA_OVERRIDE_ENV_PROMPT', process.env.QA_OVERRIDE_ENV_PROMPT);  
 
