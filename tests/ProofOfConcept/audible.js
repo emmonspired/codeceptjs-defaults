@@ -14,7 +14,7 @@ Scenario('My Audible Library', async (I,GoogleSheetsData) => {
     I.click("Sign In");
     await I.wait(3);    
 
-    I.fillField("Email (phone for mobile accounts)", process.env.AUDIBLE_EMAIL);
+    I.fillField("Email (phone for mobile accounts)", secret(process.env.AUDIBLE_EMAIL) );
     I.fillField("Password", secret(process.env.AUDIBLE_PASSWORD));
     I.click('Sign In');
 
