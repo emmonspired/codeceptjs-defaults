@@ -7,6 +7,8 @@ const fs = require('fs');
 
 Scenario('My Audible Library', async (I,GoogleSheetsData) => {
   
+    I.say(`Configure AUDIBLE_EMAIL, AUDIBLE_PASSWORD and AUDIBLE_BOOKS_FILE environment variables.`, 'magenta');
+
     I.amOnPage('https://www.audible.com/');
     
     I.click("Sign In");
