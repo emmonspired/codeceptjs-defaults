@@ -1,53 +1,49 @@
-
 const fs = require('fs');
 
 module.exports = {
-  bootstrapAll: function(done) {
-    console.log('bootstrapAll called for multiple-browser tests only');    
-    done();
+  bootstrapAll: async () => {
+    console.log('bootstrapAll called for multiple-browser tests only');
   },
-  teardownAll: function(done) {
+  teardownAll: async () => {
     console.log('teardownAll called for multiple-browser tests only');
-    done();
   },
-  bootstrap: function(done) {    
+  bootstrap: async () => {
     console.log('bootstrap before test suite');
 
-    prepareDirectoriesForResembleHelper();        
+    prepareDirectoriesForResembleHelper();
 
-    console.log('clearing ./output directory');      
-    deleteFolderRecursive('./output', false);              
-    done();
+    console.log('clearing ./output directory');
+    deleteFolderRecursive('./output', false);
   },
-  teardown: function(done) {    
-    done();  
-  },
-}
+  teardown: async () => {},
+};
 
-var mkdirIfNotExits = function(path) {
-  if( !fs.existsSync(path) ) {
+const mkdirIfNotExits = function (path) {
+  if (!fs.existsSync(path)) {
     fs.mkdirSync(path);
   }
-}
+};
 
-var deleteFolderRecursive = function(path, rmPath=true) {
-  if( fs.existsSync(path) ) {
-    fs.readdirSync(path).forEach(function(file,index){
-      var curPath = path + "/" + file;
-      if(fs.lstatSync(curPath).isDirectory()) { // recurse
+let deleteFolderRecursive = function (path, rmPath = true) {
+  if (fs.existsSync(path)) {
+    fs.readdirSync(path).forEach((file, index) => {
+      const curPath = `${path}/${file}`;
+      if (fs.lstatSync(curPath).isDirectory()) {
+        // recurse
         deleteFolderRecursive(curPath);
-      } else { // delete file
-        if( !curPath.endsWith('.gitignore') ) {
+      } else {
+        // delete file
+        if (!curPath.endsWith('.gitignore')) {
           fs.unlinkSync(curPath);
         }
       }
     });
-    if( rmPath ) fs.rmdirSync(path);
+    if (rmPath) fs.rmdirSync(path);
   }
 };
 
-var prepareDirectoriesForResembleHelper = function() {
+let prepareDirectoriesForResembleHelper = function () {
   mkdirIfNotExits('./screenshots');
   mkdirIfNotExits('./screenshots/base');
   mkdirIfNotExits('./screenshots/diff');
-}
+};

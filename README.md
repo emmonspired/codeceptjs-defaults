@@ -1,3 +1,5 @@
+## For launch I recommend to use loclhost selnium-standalone.
+
 ## Setup (Install Java, GitKraken, Node, node_modules, selenium-standalone, etc)
 Learn more at http://codecept.io/
 
